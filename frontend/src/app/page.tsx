@@ -1,13 +1,27 @@
 import { getHighlights, getProfile } from "@/lib/db";
 
 export default function Home() {
-  const profile = getProfile();
-  const highlights = getHighlights();
+  const profile = {
+    ...getProfile(),
+    name: "이지웅",
+    team: "부산대학교 통계학과",
+    position: "학생회장",
+    uniform_number: "3학년",
+    tagline: "그저 그런 삶을 살아가고 있는 그저 그런 인간입니다.",
+    introduction: "안녕하세요. 저는 부산대학교 통계학과에 재학 중인 이지웅입니다. 만나서 반갑고 열심히 배우겠습니다.",
+    image_path: "/images/profile.jpg",
+  };
+  const highlights = [
+    { id: 1, label: "귀차니즘" },
+    { id: 2, label: "스포츠광" },
+    { id: 3, label: "비정상인" },
+  ];
 
   return (
-    <main className="min-h-screen bg-blue-50 px-6 py-10 text-slate-900">
+    <main className="min-h-screen bg-[linear-gradient(rgba(255,255,255,0.78),rgba(255,255,255,0.78)),url('/images/campus-bg.png')] bg-cover bg-center bg-fixed px-6 py-10 text-slate-900">
       {/* 자기소개 전체 화면: 학생들이 이름, 소속, 설명을 바꿔보는 첫 실습 영역 */}
-      <section className="mx-auto max-w-4xl rounded-lg bg-white p-8 shadow-sm">
+      <section className="relative mx-auto max-w-4xl overflow-hidden rounded-lg bg-white p-8 shadow-sm before:absolute before:inset-0 before:bg-[url('/images/pnu-logo-bg.png')] before:bg-center before:bg-no-repeat before:bg-[length:520px_520px] before:opacity-10 before:content-['']">
+        <div className="relative z-10">
         <div className="grid gap-8 md:grid-cols-[280px_1fr] md:items-center">
           {/* 프로필 사진 영역: public/images/ohtani.jpeg 파일을 화면에 보여줌 */}
           <img
@@ -17,7 +31,6 @@ export default function Home() {
           />
 
           <div>
-            <p className="text-sm font-bold text-blue-600">Baseball Player Profile</p>
             <h1 className="mt-3 text-4xl font-black text-slate-950 sm:text-5xl">{profile.name}</h1>
             <p className="mt-4 text-lg leading-8 text-slate-700">{profile.tagline}</p>
           </div>
@@ -34,11 +47,11 @@ export default function Home() {
             <p className="mt-2 text-xl font-black text-slate-950">{profile.team}</p>
           </div>
           <div className="rounded-lg border border-slate-200 bg-blue-50 p-5">
-            <p className="text-sm font-bold text-slate-500">포지션</p>
+            <p className="text-sm font-bold text-slate-500">직책</p>
             <p className="mt-2 text-xl font-black text-slate-950">{profile.position}</p>
           </div>
           <div className="rounded-lg border border-slate-200 bg-blue-50 p-5">
-            <p className="text-sm font-bold text-slate-500">등번호</p>
+            <p className="text-sm font-bold text-slate-500">학년</p>
             <p className="mt-2 text-xl font-black text-slate-950">{profile.uniform_number}</p>
           </div>
         </div>
@@ -59,6 +72,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </section>
     </main>

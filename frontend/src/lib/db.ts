@@ -21,21 +21,21 @@ const dbPath = path.join(process.cwd(), "local.db");
 
 const defaultProfile: Profile = {
   id: 1,
-  name: "오타니 쇼헤이",
-  team: "LA 다저스",
-  position: "투수 / 지명타자",
-  uniform_number: "17번",
+  name: "이지웅",
+  team: "부산대학교 통계학과",
+  position: "학생회장",
+  uniform_number: "3학년",
   tagline:
-    "투수와 타자를 모두 소화하는 세계적인 야구 선수입니다. 강한 타격, 빠른 주루, 압도적인 경기 영향력으로 많은 팬들에게 사랑받고 있습니다.",
+    "그저 그런 삶을 살아가고 있는 그저 그런 인간입니다.",
   introduction:
-    "안녕하세요. 저는 오타니 쇼헤이입니다. 현재 LA 다저스에서 뛰고 있으며, 매 경기 팀에 도움이 되는 선수가 되기 위해 최선을 다하고 있습니다.",
-  image_path: "/images/ohtani.jpeg",
+    "안녕하세요. 저는 부산대학교 통계학과에 재학 중인 이지웅입니다. 만나서 반갑고 열심히 배우겠습니다.",
+  image_path: "/images/profile.jpg",
 };
 
 const defaultHighlights: Highlight[] = [
-  { id: 1, label: "강한 홈런 파워" },
-  { id: 2, label: "빠른 주루" },
-  { id: 3, label: "이도류 플레이" },
+  { id: 1, label: "귀차니즘" },
+  { id: 2, label: "스포츠광" },
+  { id: 3, label: "비정상인" },
 ];
 
 function getDb() {
